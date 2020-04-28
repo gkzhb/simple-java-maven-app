@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Connect Remote') {
             steps {
-                sshagent(credentials: ['gkzhb']) {
+                sshagent(credentials: ['deploy']) {
                     sh 'ssh -o StrictHostKeyChecking=no root@gkzhb.tk echo "hello world!"'
                 }
             }
