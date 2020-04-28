@@ -29,9 +29,11 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        stage('mytest') {
+        stage('Connect Remote') {
             steps {
-                sh 'echo "hello world!"'
+                sshagent(credentials: ['deploy']) {
+                    sh 'ssh -o StrictHostKeyChecking=no root@gkzhb.tk echo "hello world!"'
+                }
             }
         }
     }
