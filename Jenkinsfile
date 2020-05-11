@@ -55,9 +55,11 @@ pipeline {
             }
         }
 		stage('Deploy') {
-			script {
-				if(currentBuild.currentResult == "SUCCESS" || currentBuild.currentResult == "UNSTABLE") {
-					sh 'echo "Build Succeeded."'
+            steps {
+				script {
+					if(currentBuild.currentResult == "SUCCESS" || currentBuild.currentResult == "UNSTABLE") {
+						sh 'echo "Build Succeeded."'
+					}
 				}
 			}
 		}
