@@ -27,18 +27,17 @@ pipeline {
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'ali',
-                                verboses: true,
                                 transfers: [
                                     sshTransfer(
-                                        cleanRemote: true,
+                                        cleanRemote: false,
                                         excludes: '',
-                                        execCommand: 'echo "hello world!"',
+                                        execCommand: 'pwd',
                                         execTimeout: 120000,
                                         flatten: false,
                                         makeEmptyDirs: false,
                                         noDefaultExcludes: false,
                                         patternSeparator: '[, ]+',
-                                        remoteDirectory: '.',
+                                        remoteDirectory: './simple-java-app',
                                         remoteDirectorySDF: false,
                                         removePrefix: '',
                                         sourceFiles: './Jenkinsfile'
@@ -46,7 +45,7 @@ pipeline {
                                 ],
                                 usePromotionTimestamp: false,
                                 useWorkspaceInPromotion: false,
-                                verbose: false
+                                verbose: true
                             )
                         ]
                     )
