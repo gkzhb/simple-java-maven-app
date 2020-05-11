@@ -26,7 +26,36 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                script {
+                    sshPublisher(
+                        continueOnError: false, failOnError: true,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'ali',
+                                verboses: true,
+                                transfers: [
+                                    sshTransfer(
+                                        cleanRemote: true,
+                                        excludes: '',
+                                        execCommand: 'echo "hello world!"',
+                                        execTimeout: 120000,
+                                        flatten: false,
+                                        makeEmptyDirs: false,
+                                        noDefaultExcludes: false,
+                                        patternSeparator: '[, ]+',
+                                        remoteDirectory: '.',
+                                        remoteDirectorySDF: false,
+                                        removePrefix: '',
+                                        sourceFiles: './Jenkinsfile'
+                                    )
+                                ],
+                                usePromotionTimestamp: false,
+                                useWorkspaceInPromotion: false,
+                                verbose: false
+                            )
+                        ]
+                    )
+                }
             }
         }
     }
