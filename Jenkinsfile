@@ -29,15 +29,17 @@ pipeline {
                                 configName: 'ali',
                                 transfers: [
                                     sshTransfer(
+                                        execCommand: 'pwd',
+                                    ),
+                                    sshTransfer(
                                         cleanRemote: false,
                                         excludes: '',
-                                        execCommand: 'pwd',
                                         execTimeout: 120000,
                                         flatten: false,
                                         makeEmptyDirs: false,
                                         noDefaultExcludes: false,
                                         patternSeparator: '[, ]+',
-                                        remoteDirectory: './simple-java-app',
+                                        remoteDirectory: './simple-java',
                                         remoteDirectorySDF: false,
                                         removePrefix: '',
                                         sourceFiles: './Jenkinsfile'
@@ -51,6 +53,11 @@ pipeline {
                     )
                 }
             }
-        }
+        },
+		stage('Deploy') {
+			if(currentBuild.currentResult == "SUCCESS" || currentBuild.currentResult == "UNSTABLE") {
+				sh 'echo "Build Succeeded."'
+			}
+		}
     }
 }
