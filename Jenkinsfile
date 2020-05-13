@@ -75,7 +75,7 @@ pipeline {
 ::-webkit-scrollbar{ display: none; }
 </style>
   <meta charset="UTF-8">  
-  <title>${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志</title>  
+  <title>${env.JOB_NAME"}-第${BUILD_NUMBER}次构建日志</title>  
 </head>  
 
 <body leftmargin="8" marginwidth="0" topmargin="8" marginheight="4"  
