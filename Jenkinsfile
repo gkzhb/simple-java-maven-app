@@ -67,7 +67,7 @@ pipeline {
   post {
     always {
       emailext (
-        subject: '[JENKINS]: ${env.JOB_NAME} - Build # $BUILD_NUMBER - $BUILD_STATUS!',
+        subject: '[JENKINS]: $JOB_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
         body: """<!DOCTYPE html>
 <html>
 <head>
@@ -75,7 +75,7 @@ pipeline {
 ::-webkit-scrollbar{ display: none; }
 </style>
   <meta charset="UTF-8">
-  <title>${env.JOB_NAME}-第${BUILD_NUMBER}次构建日志</title>
+  <title>${JOB_NAME}-第${BUILD_NUMBER}次构建日志</title>
 </head>
 
 <body leftmargin="8" marginwidth="0" topmargin="8" marginheight="4"
@@ -95,7 +95,7 @@ style="font-size: 0.75rem; font-family: Tahoma, Arial, Helvetica, sans-serif;lin
   <td>
     <ul>
       <li>项目名称 ：${env.PROJECT_NAME}</li>
-      <li>构建状态 ：${env.BUILD_STATUS}</li>
+      <li>构建状态 ：$BUILD_STATUS</li>
       <li>构建编号 ：第${BUILD_NUMBER}次构建</li>
       <li>触发原因 ：${env.CAUSE}</li>
       <li>构建日志 ：<a href="${env.BUILD_URL}console">${env.BUILD_URL}console</a></li>
