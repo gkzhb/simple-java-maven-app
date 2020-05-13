@@ -94,7 +94,7 @@ style="font-size: 0.75rem; font-family: Tahoma, Arial, Helvetica, sans-serif;lin
 <tr>
   <td>
     <ul>
-      <li>项目名称 ：${PROJECT_NAME}</li>
+      <li>项目名称 ：${env.PROJECT_NAME}</li>
       <li>构建状态 ：${BUILD_STATUS}</li>
       <li>构建编号 ：第${BUILD_NUMBER}次构建</li>
       <li>触发原因 ：${CAUSE}</li>
