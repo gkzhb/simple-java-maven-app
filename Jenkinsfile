@@ -95,9 +95,9 @@ style="font-size: 0.75rem; font-family: Tahoma, Arial, Helvetica, sans-serif;lin
   <td>
     <ul>
       <li>项目名称 ：${env.PROJECT_NAME}</li>
-      <li>构建状态 ：${BUILD_STATUS}</li>
+      <li>构建状态 ：${env.BUILD_STATUS}</li>
       <li>构建编号 ：第${BUILD_NUMBER}次构建</li>
-      <li>触发原因 ：${CAUSE}</li>
+      <li>触发原因 ：${env.CAUSE}</li>
       <li>构建日志 ：<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
       <li>构建URL ：<a href="${BUILD_URL}">${BUILD_URL}</a></li>
       <li>工作目录 ：<a href="${PROJECT_URL}ws">${PROJECT_URL}ws</a></li>
