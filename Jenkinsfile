@@ -42,7 +42,7 @@ pipeline {
                                         remoteDirectory: './simple-java',
                                         remoteDirectorySDF: false,
                                         removePrefix: '',
-                                        sourceFiles: '**/*'
+                                        sourceFiles: 'Jenkinsfile'
                                     )
                                 ],
                                 usePromotionTimestamp: false,
